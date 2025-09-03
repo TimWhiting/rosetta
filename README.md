@@ -9,6 +9,7 @@ This repository contains the Rosetta Code tasks implemented in Koka.
 Examples with effects:
 Everything except:
 - pr100doors.kk
+- abcproblem.kk
 - caesar-cipher.kk
 - day-of-week.kk (does, but it is builtin)
 - extend-language.kk
