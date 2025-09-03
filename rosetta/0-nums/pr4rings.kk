@@ -17,11 +17,13 @@ fun is_unique(a: int, b: int, c: int, d: int, e: int, f: int, g: int)
 fun is_solution(a: int, b: int, c: int, d: int, e: int, f: int, g: int)
   val bcd = b + c + d
   val ab = a + b
-  if ab != bcd then return False
-  val def = d + e + f
-  if bcd != def then return False
-  val fg = f + g
-  return def == fg
+  if ab != bcd then False
+  else
+    val def = d + e + f
+    if bcd != def then False
+    else
+      val fg = f + g
+      def == fg
 
 fun four_squares(low: int, high: int, unique:bool=True)
   var count := 0
@@ -35,14 +37,19 @@ fun four_squares(low: int, high: int, unique:bool=True)
                 if (!unique || is_unique(a, b, c, d, e, f, g)) && is_solution(a, b, c, d, e, f, g) then
                   count := count + 1
                   if unique then
-                    println([a, b, c, d, e, f, g].show)
+                    () // println([a, b, c, d, e, f, g].show)
                   else
                     ()
   val uniquestr = if unique then "unique" else "non-unique"
-  println(count.show ++ " " ++ uniquestr ++ " solutions in " ++ low.show ++ " to " ++ high.show ++ " range\n")
+  count.show ++ " " ++ uniquestr ++ " solutions in " ++ low.show ++ " to " ++ high.show ++ " range\n"
+
+fun analyze-four-squares()
+  four_squares(3, 9)
+fun result-four-squares()
+  "4 unique solutions in 3 to 9 range\n"
 
 fun main()
-  four_squares(1, 7)
-  four_squares(3, 9)
-  four_squares(0, 9, False)
+  four_squares(1, 7).println
+  four_squares(3, 9).println
+  four_squares(0, 9, False).println
   
