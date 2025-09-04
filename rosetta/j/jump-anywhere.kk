@@ -38,3 +38,28 @@ fun main()
     println(i)
   }
   println(i)
+
+
+fun analyze-e1()
+  find-first()
+fun result-e1()
+  "Found 9"
+
+fun analyze-loop()
+  var i := 0
+  var r := ""
+  loop { i < 10 } {
+    i := i + 1
+    // We can early return from the inner lambda (continue) 
+    if i == 4 then return () 
+    // Adding local breaks could be done by returning `True` / `False`:
+    //   This would require us to always return `True` if we want to continue
+    // The following are non-local:
+    //   They can be used in nested calls to exit from the innermost loop on the stack.
+    if i == 5 then lcontinue() 
+    if i == 8 then lbreak()
+    r := r ++ i.show
+  }
+  r
+fun result-loop()
+  "123678"

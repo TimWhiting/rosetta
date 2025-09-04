@@ -48,3 +48,9 @@ fun main()
   val words = ["", "a", "baRk", "booK", "treat", "COMMON", "squad", "Confused"]
   words.map(fn(a) (a, can-make-word(a, blocks))).foreach fn((w, b))
     println(w.show ++ " " ++ (if b then "can" else "cannot") ++ " be made")
+
+fun analyze-main()
+  val words = ["", "a", "baRk", "booK", "treat", "COMMON", "squad", "Confused"]
+  words.map(fn(a) (a, can-make-word(a, blocks)))
+fun result-main()
+  [("", True), ("a", True), ("baRk", True), ("booK", False), ("treat", True), ("COMMON", False), ("squad", True), ("Confused", False)]

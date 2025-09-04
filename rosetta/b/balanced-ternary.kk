@@ -94,3 +94,11 @@ fun main()
   val c = "+-++-".from_string
   val d = a * (b - c)
   println("a = " ++ a.to_int.show ++ "\nb = " ++ b.to_string ++ "\nc = " ++ c.to_int.show ++ "\na * (b - c) = " ++ d.to_string ++ " = " ++ d.to_int.show )
+
+fun analyze-main()
+  val a = "+-0++0+".from_string
+  val b = (-436).from_int
+  val c = "+-++-".from_string
+  a * (b - c)
+fun result-main()
+  [Zero,Pos,Pos,Zero,Neg,Neg,Pos,Zero,Neg,Neg,Neg,Neg]

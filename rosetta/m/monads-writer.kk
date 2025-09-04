@@ -45,3 +45,12 @@ fun main()
   println("The Golden Ratio is " ++ result2.show)
   println("Derived as follows:")
   println(log2.map("  " ++ _).join("\n"))
+fun analyze-solution1()
+  solution1()
+fun result-solution1()
+  (1.6180339887498949, [
+  "Initial value    : 5",
+  "Took square root : 2.2360679774997898",
+  "Added one        : 3.2360679774997898",
+  "Divided by two   : 1.6180339887498949"
+  ])

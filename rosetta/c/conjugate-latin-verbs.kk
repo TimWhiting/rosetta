@@ -33,3 +33,19 @@ fun main()
   ["amare", "vidēre", "ducere", "audire", "qwerty", "are"].foreach fn(word)
     (word ++ ":").println
     word.conjugate
+fun analyze-main()
+  var x := []
+  with handler
+    return(_) x
+    fun yield(a: string)
+      x := Cons(a, x)      
+  ["amare", "vidēre", "ducere", "audire", "qwerty", "are"].foreach fn(word)
+    (word ++ ":").println
+    word.conjugate
+fun result-main()
+  ["amo", "amas", "amat", "amamus", "amatis", "amant", 
+  "video", "vides", "videt", "videmus", "videtis", "vident",
+  "duco", "ducis", "ducit", "ducimus", "ducitis", "ducunt",
+  "audio", "audis", "audit", "audimus", "auditis", "audiunt",
+  "Can not conjugate \"qwerty\" not a regular verb ending",
+  "Can not conjugate \"are\" not long enough for a regular verb"]
