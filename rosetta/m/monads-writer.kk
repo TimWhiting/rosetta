@@ -50,7 +50,7 @@ fun analyze-solution1()
 fun result-solution1()
   (1.6180339887498949, [
   "Initial value    : 5",
-  "Took square root : 2.2360679774997898",
-  "Added one        : 3.2360679774997898",
-  "Divided by two   : 1.6180339887498949"
+  "Took square root : 2.23606797749979",
+  "Added one        : 3.23606797749979",
+  "Divided by two   : 1.618033988749895"
   ])
