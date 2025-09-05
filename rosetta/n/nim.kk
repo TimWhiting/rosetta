@@ -1,4 +1,5 @@
 import std/os/readline
+import std/num/random
 
 type player
   Bot
@@ -38,15 +39,22 @@ pub fun main()
   var tokens := 12
   var player := Human
   var last-choice := 0
-  with handler 
+  with handler
     ctl move()
       val choice = get-move(player, min(3, tokens), tokens, last-choice)
       last-choice := choice
       tokens := tokens - choice 
       if tokens == 0 then 
         println("Player " ++ player.show ++ " won!")
+        Just(player)
       else
         player := player.other
         resume(())
   while {True}
     move()
+  Nothing
+
+fun analyze-nim()
+  main()
+fun result-nim()
+  Just(Bot)
