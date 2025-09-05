@@ -24,16 +24,19 @@ fun get-move(p: player, max-tokens: int, total-tokens: int, last-choice)
       println("Bot choosing " ++ res.show)
       res
     Human -> 
-      var valid := -1
-      while { valid < 0 } 
+      fun recur()
         println("Total tokens: " ++ total-tokens.show)
         println("Choose a number of tokens between 1 and " ++ max-tokens.show)
         match readline().parse-int 
           Just(v) -> 
-            if v >= 1 && v <= max-tokens then valid := v
-            else println("Input number not in range")
-          Nothing -> println("Input not a number")
-      valid
+            if v >= 1 && v <= max-tokens then v // need narrowing here
+            else 
+              println("Input number not in range")
+              recur()
+          Nothing -> 
+            println("Input not a number")
+            recur()
+      recur()
 
 pub fun main()
   var tokens := 12
