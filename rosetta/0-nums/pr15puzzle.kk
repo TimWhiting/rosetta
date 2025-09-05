@@ -27,9 +27,6 @@ fun delta(move: move): (int, int)
     MLeft -> (1, 0)
     MRight -> (-1, 0)
 
-inline extern unsafe-assign : forall<a> ( v : vector<a>, i : ssize_t, x : a ) -> total ()
-  c "kk_vector_unsafe_assign"
-
 fun update(game: board, move: move): exn board
   val (dx, dy) = move.delta
   val (hx, hy) = game.hole-pos

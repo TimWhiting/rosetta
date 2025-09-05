@@ -13,9 +13,6 @@ value struct drawer
   num: int
   open: bool = False
 
-inline extern unsafe-assign : forall<a> ( v : vector<a>, i : ssize_t, x : a ) -> total ()
-  c "kk_vector_unsafe_assign"
-
 fun createDrawers()
   val drawers = vector(100, Drawer(0,open=True))
   for(0, 99) fn(i)

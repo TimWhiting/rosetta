@@ -51,7 +51,7 @@ fun analyze-loop()
   loop { i < 10 } {
     i := i + 1
     // We can early return from the inner lambda (continue) 
-    if i == 4 then return () 
+    // if i == 4 then return () 
     // Adding local breaks could be done by returning `True` / `False`:
     //   This would require us to always return `True` if we want to continue
     // The following are non-local:
@@ -62,4 +62,4 @@ fun analyze-loop()
   }
   r
 fun result-loop()
-  "123678"
+  "123467"

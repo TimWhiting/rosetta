@@ -60,7 +60,7 @@ fun deck/show(d: deck)
 fun deck(): deck
   val suits = [Hearts, Diamonds, Clubs, Spades]
   val ranks = [Ace, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King]
-  Deck(suits.map(fn(s) ranks.map(Card(_,s))).concat)
+  Deck(suits.map(fn(s) ranks.map(fn(r) Card(r,s))).concat)
 
 effect split
   fun split(): ()
@@ -93,3 +93,21 @@ fun main()
   val (hands, _) = deck2.deal(3, 2)
   println("Dealt to players:\n")
   println(hands.map-indexed("Player " ++ (_ + 1).show ++ " has:\n" ++ _.show).join("\n\n"))
+
+
+fun analyze-deck()
+  val deck = deck()
+  val shuffled = shuffle(deck)
+  val (cards, _) = shuffled.deal(2)
+  cards
+
+fun result-deck()
+  fun recur()
+    try { 
+      val d = deck()
+      val first = d.cards[random-int() % (d.cards.length - 1)].unjust
+      val second = d.cards[random-int() % (d.cards.length - 1)].unjust
+      [first, second]
+    } fn(e)
+      recur()
+  recur()

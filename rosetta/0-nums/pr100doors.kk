@@ -15,9 +15,6 @@ fun toggle(self: state): state
     Open   -> Closed
     Closed -> Open
 
-inline extern unsafe-assign : forall<a> ( v : vector<a>, i : ssize_t, x : a ) -> total ()
-  c "kk_vector_unsafe_assign"
-
 // fun main()
 //   val doors = vector(100, Closed)
 //   for(0,99) fn(pass)
